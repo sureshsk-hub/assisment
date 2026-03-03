@@ -88,7 +88,7 @@
 # CMD ["uv", "run", "uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000", "--log-config=log_conf.yaml"]
 
 # ----------- Builder Stage -------------
-FROM python:3.11-slim AS builder
+FROM python:3.12-slim AS builder
 
 WORKDIR /app
 
@@ -119,7 +119,7 @@ EXPOSE 8000
 
 # Run with production settings
 #CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8000"]
-RUN uv sync --system
+#RUN uv sync --system
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
 
 
